@@ -1917,6 +1917,11 @@ CVideoInfoScanner::~CVideoInfoScanner()
           {
             art["set." + artItem.first] = artItem.second;
           }
+          if (!movieSetArt.empty() && movieDetails.m_set.GetID() > 0)
+          {
+            m_database.SetArtForItem(movieDetails.m_set.GetID(), MediaTypeVideoCollection,
+                                     movieSetArt);
+          }
         }
       }
     }
